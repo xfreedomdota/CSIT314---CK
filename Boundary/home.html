@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CK</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1c2321;
+      --pine: #1f3a36;
+      --plaster: #e9ecea;
+      --brass: #a97c2f;
+      --paper: #fafafa;
+      --wall: #cfd8d3;
+      --serif: "Newsreader", Georgia, serif;
+      --sans: "Figtree", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: var(--sans); color: var(--ink); background: var(--paper); line-height: 1.6; }
+    a { color: inherit; }
+    :focus-visible { outline: 3px solid var(--brass); outline-offset: 3px; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* Header */
+    header { padding: 1.25rem 0; }
+    header .wrap { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: space-between; }
+    .logo { font-family: var(--serif); font-size: 1.5rem; text-decoration: none; }
+    nav a { margin-left: 1.5rem; text-decoration: none; font-weight: 500; }
+    nav a:hover { color: var(--brass); }
+    nav a.nav-login { background: var(--pine); color: #fff; padding: .45rem 1.1rem; border-radius: 4px; }
+    nav a.nav-login:hover { background: #162b28; color: #fff; }
+
+    /* Hero */
+    .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; padding: 3rem 0 5rem; }
+    h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.08; margin: 0 0 1.25rem; }
+    .hero p { font-size: 1.1rem; max-width: 34rem; margin: 0 0 1.75rem; }
+    .btn { display: inline-block; background: var(--pine); color: #fff; padding: .8rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: 600; border: 0; font: inherit; font-weight: 600; cursor: pointer; }
+    .btn:hover { background: #162b28; }
+    .btn.ghost { background: transparent; color: var(--pine); border: 2px solid var(--pine); margin-left: .5rem; }
+    .btn.ghost:hover { background: var(--pine); color: #fff; }
+
+    .room svg { width: 100%; height: auto; display: block; border-radius: 6px; }
+    #wall { fill: var(--wall); transition: fill .4s; }
+    .swatches { display: flex; align-items: center; gap: .6rem; margin-top: .9rem; font-size: .9rem; }
+    .swatches button { width: 2rem; height: 2rem; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1px #888; cursor: pointer; padding: 0; }
+    .swatches button[aria-pressed="true"] { box-shadow: 0 0 0 3px var(--brass); }
+
+    /* Sections */
+    section { padding: 4.5rem 0; }
+    h2 { font-family: var(--serif); font-weight: 400; font-size: 2.2rem; margin: 0 0 2rem; }
+    .services { background: var(--plaster); }
+    .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+    .grid4 h3 { font-family: var(--serif); font-size: 1.3rem; font-weight: 500; margin: 0 0 .5rem; }
+    .grid4 p { margin: 0; font-size: .95rem; }
+
+    .projects { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 1.25rem; }
+    .project { min-height: 280px; padding: 1.25rem; display: flex; flex-direction: column; justify-content: flex-end; color: white; border-radius: 4px; }
+    .project h3 { font-family: var(--serif); font-weight: 700; font-size: 1.10rem; margin: 0; text-shadow: 0 2px 8px rgba(0,0,0,.7); }
+    .project p { margin: .2rem 0 0; font-size: 1rem; font-weight: 700; opacity: 1; text-shadow: 0 2px 6px rgba(0,0,0,.7); }
+    .p1 {background: url('../Assets/3 bedroom.jpg'); background-size: cover; background-position: center; }
+    .p2 {background: url('../Assets/studio loft.jpg'); background-size: cover; background-position: center; }
+    .p3 {background: url('../Assets/office workspace.jpg'); background-size: cover; background-position: center; }
+
+    .contact { background: var(--pine); color:whitesmoke; }
+    .contact .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+    form { display: grid; gap: .9rem; }
+    label { font-size: .9rem; }
+    input, textarea { width: 100%; padding: .7rem; border: 0; border-radius: 4px; font: inherit; }
+    textarea { min-height: 110px; }
+    .btn.brass { background: var(--brass); }
+    #sent { min-height: 1.4em; margin: 0; }
+
+    footer { padding: 1.5rem 0; font-size: .9rem; }
+
+    @media (max-width: 800px) {
+      .hero, .contact .cols { grid-template-columns: 1fr; }
+      .grid4 { grid-template-columns: 1fr 1fr; }
+      .projects { grid-template-columns: 1fr; }
+      nav a { margin: 0 1rem 0 0; }
+    }
+    @media (max-width: 480px) { .grid4 { grid-template-columns: 1fr; } }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#"><img src="../Assets/CK.jpg" alt="CK" height="125"></a>
+    <nav aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <a class="nav-login" href="13_20_39_LoginPage.php">Login</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <div>
+      <h1>Rooms planned around how you actually live.</h1>
+      <p>We design homes and small offices from first sketch to final cushion. Every plan starts with a visit, a tape measure and a lot of questions.</p>
+      <a class="btn" href="#contact">Book a free consultation</a>
+      <a class="btn ghost" href="#projects">See our projects</a>
+    </div>
+    <div class="room">
+      <svg viewBox="0 0 400 300" role="img" aria-label="Illustration of a living room with a sofa, lamp and arched window">
+        <rect id="wall" width="400" height="220"/>
+        <rect y="220" width="400" height="80" fill="#b99f7c"/>
+        <path d="M60 190V90a50 50 0 0 1 100 0v100z" fill="#f4f6f5" stroke="#fff" stroke-width="6"/>
+        <line x1="110" y1="40" x2="110" y2="190" stroke="#fff" stroke-width="4"/>
+        <rect x="170" y="175" width="190" height="60" rx="10" fill="#1f3a36"/>
+        <rect x="160" y="190" width="30" height="55" rx="8" fill="#2c504a"/>
+        <rect x="340" y="190" width="30" height="55" rx="8" fill="#2c504a"/>
+        <rect x="180" y="235" width="8" height="14" fill="#1c2321"/>
+        <rect x="342" y="235" width="8" height="14" fill="#1c2321"/>
+        <line x1="378" y1="70" x2="378" y2="240" stroke="#1c2321" stroke-width="4"/>
+        <path d="M362 70h32l-8-30h-16z" fill="#a97c2f"/>
+        <ellipse cx="110" cy="262" rx="70" ry="12" fill="#e9ecea" opacity=".7"/>
+      </svg>
+      <div class="swatches" role="group" aria-label="Wall colour">
+        <span>Try a wall colour:</span>
+        <button type="button" style="background:#cfd8d3" aria-label="Sage" aria-pressed="true" data-c="#cfd8d3"></button>
+        <button type="button" style="background:#e3d3c4" aria-label="Clay" aria-pressed="false" data-c="#e3d3c4"></button>
+        <button type="button" style="background:#b9c6d6" aria-label="Mist blue" aria-pressed="false" data-c="#b9c6d6"></button>
+        <button type="button" style="background:#e8e2b9" aria-label="Straw" aria-pressed="false" data-c="#e8e2b9"></button>
+      </div>
+    </div>
+  </div>
+
+  <section class="services" id="services">
+    <div class="wrap">
+      <h2>What we do</h2>
+      <div class="grid4">
+        <div><h3>Full-home design</h3><p>Layouts, materials, lighting and furniture planned together so nothing clashes.</p></div>
+        <div><h3>Renovation management</h3><p>We brief contractors, check the work and keep the schedule on track.</p></div>
+        <div><h3>Furniture and styling</h3><p>Made-to-measure pieces and ready-to-buy picks that fit your space and budget.</p></div>
+        <div><h3>Small office fit-outs</h3><p>Quiet, practical workspaces for teams of up to 30 people.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <h2>Recent projects</h2>
+      <div class="projects">
+        <div class="project p1"><h3>The Garden Flat</h3><p>3-room apartment, full renovation</p></div>
+        <div class="project p2"><h3>Studio Loft</h3><p>Furniture and styling</p></div>
+        <div class="project p3"><h3>Suntec Office</h3><p>20-person workspace</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap cols">
+      <div>
+        <h2>Tell us about your space</h2>
+        <p>Share a few details and we'll reply within three working days to set up a free consultation.</p>
+        <p>CKhelp@outlook.com<br>Mon to Fri, 9am to 6pm</p>
+      </div>
+      <form id="form">
+        <div><label for="name">Name</label><input id="name" required></div>
+        <div><label for="email">Email</label><input id="email" type="email" required></div>
+        <div><label for="msg">What are you planning?</label><textarea id="msg" required></textarea></div>
+        <button class="btn brass" type="submit">Send enquiry</button>
+        <p id="sent" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">&copy; 2026 CK</div>
+</footer>
+
+<script>
+  const wall = document.getElementById("wall");
+  const btns = document.querySelectorAll(".swatches button");
+  btns.forEach(b => b.addEventListener("click", () => {
+    wall.style.fill = b.dataset.c;
+    btns.forEach(x => x.setAttribute("aria-pressed", x === b));
+  }));
+
+  document.getElementById("form").addEventListener("submit", e => {
+    e.preventDefault();
+    document.getElementById("sent").textContent = "Thanks! We'll reply within three working days.";
+    e.target.reset();
+  });
+</script>
+</body>
+</html>

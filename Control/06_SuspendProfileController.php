@@ -12,6 +12,6 @@ class SuspendProfileController
 
     public function suspendProfile(string $username): bool
     {
-        return $this->userProfile->suspendProfile(trim($username));
+        return $this->userProfile->suspendProfile($username);
     }
 }

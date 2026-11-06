@@ -14,6 +14,6 @@ class CreateCurrentIDPController extends IDPController
         if ($photo === false) {
             return false;
         }
-        return $this->idp->createIDP($designerID, trim($title), $category, trim($description), $photo ?? '', $status, $progress);
+        return $this->idp->createIDP($designerID, $title, $category, $description, $photo ?? '', $status, $progress);
     }
 }

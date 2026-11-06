@@ -12,9 +12,9 @@ class UpdateCategoryController
 
     public function updateCategory(int $categoryID, string $categoryName, string $description): bool
     {
-        if (trim($categoryName) === '') {
+        if ($categoryName === '') {
             return false;
         }
-        return $this->category->updateCategory($categoryID, trim($categoryName), trim($description));
+        return $this->category->updateCategory($categoryID, $categoryName, $description);
     }
 }

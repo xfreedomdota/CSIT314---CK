@@ -12,6 +12,6 @@ class SearchIDPController
 
     public function searchIDP(string $keyword, string $category): array
     {
-        return $this->idp->searchIDP(trim($keyword), trim($category));
+        return $this->idp->searchIDP($keyword, $category);
     }
 }

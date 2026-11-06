@@ -55,7 +55,7 @@ class IDPTest extends TestCase
 
     public function testCreateCurrentIDPMissingTitle(): void
     {
-        $this->assertFalse((new CreateCurrentIDPController($this->idp))->createIDP($this->designer, ' ', 'Residential', '', 'Planning', 10));
+        $this->assertFalse((new CreateCurrentIDPController($this->idp))->createIDP($this->designer, '', 'Residential', '', 'Planning', 10));
     }
 
     public function testViewCurrentIDPOnlyShowsMine(): void

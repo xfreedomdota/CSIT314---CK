@@ -23,7 +23,7 @@ abstract class IDPController
 
     protected function validate(string $title, string $category, string $status, int $progress): bool
     {
-        if (trim($title) === '' || trim($category) === '' || !in_array($status, IDP::STATUSES, true)
+        if ($title === '' || $category === '' || !in_array($status, IDP::STATUSES, true)
             || $progress < 0 || $progress > 100) {
             $this->error = 'Please fill in the title and category, and use a progress between 0 and 100.';
             return false;

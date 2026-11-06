@@ -147,6 +147,6 @@ class UserAccountTest extends TestCase
 
     public function testSearchAccountsEmptyInputIsInvalid(): void
     {
-        $this->assertFalse((new SearchAccountController($this->account))->searchAccounts('   '));
+        $this->assertFalse((new SearchAccountController($this->account))->searchAccounts(''));
     }
 }

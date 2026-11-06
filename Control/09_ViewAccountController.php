@@ -12,6 +12,6 @@ class ViewAccountController
 
     public function getAccount(string $username): ?UserAccount
     {
-        return $this->userAccount->searchAccount(trim($username));
+        return $this->userAccount->searchAccount($username);
     }
 }

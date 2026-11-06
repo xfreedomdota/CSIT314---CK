@@ -14,7 +14,7 @@ class UpdateCurrentIDPController extends IDPController
         if ($photo === false) {
             return false;
         }
-        if (!$this->idp->UpdateIDP($projectID, $designerID, trim($title), $category, trim($description), $photo, $status, $progress)) {
+        if (!$this->idp->UpdateIDP($projectID, $designerID, $title, $category, $description, $photo, $status, $progress)) {
             $this->error = 'Project not found.';
             return false;
         }

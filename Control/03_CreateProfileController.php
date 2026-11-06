@@ -12,9 +12,6 @@ class CreateProfileController
 
     public function createProfile(string $username, string $password, string $name, string $userType): bool
     {
-        $username = trim($username);
-        $name     = trim($name);
-
         if ($username === '' || $password === '' || $name === ''
             || !in_array($userType, UserProfile::USER_TYPES, true)) {
             return false;

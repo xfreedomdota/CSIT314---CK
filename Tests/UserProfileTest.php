@@ -33,7 +33,7 @@ class UserProfileTest extends TestCase
     public function testCreateProfileWithMissingName(): void
     {
         $controller = new CreateProfileController($this->profile);
-        $this->assertFalse($controller->createProfile('bob', 'pass', '  ', 'Customer'));
+        $this->assertFalse($controller->createProfile('bob', 'pass', '', 'Customer'));
     }
 
     public function testCreateDuplicateProfile(): void

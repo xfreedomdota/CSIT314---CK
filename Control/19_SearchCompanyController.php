@@ -12,6 +12,6 @@ class SearchCompanyController
 
     public function searchCompanies(string $keyword): array
     {
-        return $this->company->searchCompaniesByKeyword(trim($keyword));
+        return $this->company->searchCompaniesByKeyword($keyword);
     }
 }

@@ -16,11 +16,11 @@ class RegisterCompanyController
     public function registerCompany(int $designerID, string $companyName, string $regNum, string $description, string $address): bool
     {
         $this->error = '';
-        if (trim($companyName) === '') {
+        if ($companyName === '') {
             $this->error = 'invalid';
             return false;
         }
-        if (!$this->company->createCompany($designerID, trim($companyName), trim($regNum), trim($description), trim($address))) {
+        if (!$this->company->createCompany($designerID, $companyName, $regNum, $description, $address)) {
             $this->error = 'exists';
             return false;
         }

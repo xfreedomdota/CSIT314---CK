@@ -13,6 +13,6 @@ class ShortlistSearchController
     public function searchShortlist(int $customerId, string $keyword, string $filter): array
     {
         $this->shortlist->setCustomerID($customerId);
-        return $this->shortlist->searchIDPByFilter(trim($keyword), trim($filter));
+        return $this->shortlist->searchIDPByFilter($keyword, $filter);
     }
 }

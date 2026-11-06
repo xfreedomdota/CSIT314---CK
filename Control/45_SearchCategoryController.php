@@ -12,6 +12,6 @@ class SearchCategoryController
 
     public function searchCategories(string $keyword): array
     {
-        return $this->category->searchCategoriesByKeyword(trim($keyword));
+        return $this->category->searchCategoriesByKeyword($keyword);
     }
 }

@@ -12,6 +12,6 @@ class ViewProfileController
 
     public function getProfile(string $username): ?UserProfile
     {
-        return $this->userProfile->getProfile(trim($username));
+        return $this->userProfile->getProfile($username);
     }
 }

@@ -12,6 +12,6 @@ class SearchProfileController
 
     public function searchProfiles(string $filter): array
     {
-        return $this->userProfile->searchProfilesByFilter(trim($filter));
+        return $this->userProfile->searchProfilesByFilter($filter);
     }
 }

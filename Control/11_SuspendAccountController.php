@@ -16,7 +16,7 @@ class SuspendAccountController
     public function suspendAccount(string $username): bool
     {
         $this->error = '';
-        $account = $this->userAccount->searchAccount(trim($username));
+        $account = $this->userAccount->searchAccount($username);
 
         if ($account === null) {
             $this->error = 'not_found';
@@ -26,6 +26,6 @@ class SuspendAccountController
             $this->error = 'already_suspended';
             return false;
         }
-        return $this->userAccount->suspendAccount(trim($username));
+        return $this->userAccount->suspendAccount($username);
     }
 }

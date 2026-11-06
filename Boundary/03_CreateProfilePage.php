@@ -29,7 +29,7 @@ class CreateProfilePage
 
     public function submitProfile(string $username, string $password, string $name, string $userType): void
     {
-        $this->username = trim($username);
+        $this->username = $username;
         $controller = new CreateProfileController();
         $this->success = $controller->createProfile($username, $password, $name, $userType);
         $this->message = $this->success

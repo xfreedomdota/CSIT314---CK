@@ -13,6 +13,6 @@ class AddPastIDPController extends IDPController
         if ($photo === false) {
             return false;
         }
-        return $this->idp->createPastIDP($designerID, trim($title), $category, trim($description), $photo ?? '');
+        return $this->idp->createPastIDP($designerID, $title, $category, $description, $photo ?? '');
     }
 }

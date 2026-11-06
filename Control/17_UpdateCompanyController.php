@@ -12,9 +12,9 @@ class UpdateCompanyController
 
     public function updateCompany(int $designerID, string $companyName, string $regNum, string $description, string $address): bool
     {
-        if (trim($companyName) === '') {
+        if ($companyName === '') {
             return false;
         }
-        return $this->company->updateCompany($designerID, trim($companyName), trim($regNum), trim($description), trim($address));
+        return $this->company->updateCompany($designerID, $companyName, $regNum, $description, $address);
     }
 }

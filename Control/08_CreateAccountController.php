@@ -16,8 +16,6 @@ class CreateAccountController
     public function createAccount(string $username, string $password, string $email): bool
     {
         $this->error = '';
-        $username = trim($username);
-        $email    = trim($email);
 
         if ($username === '' || $password === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $this->error = 'invalid';

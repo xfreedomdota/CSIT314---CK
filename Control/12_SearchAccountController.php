@@ -12,7 +12,6 @@ class SearchAccountController
 
     public function searchAccounts(string $keyword): array|false
     {
-        $keyword = trim($keyword);
         if ($keyword === '') {
             return false;
         }

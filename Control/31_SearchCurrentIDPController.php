@@ -5,6 +5,6 @@ class SearchCurrentIDPController extends IDPController
 {
     public function searchIDP(int $designerID, string $keyword, string $status): array
     {
-        return $this->idp->searchIDPByCondition($designerID, trim($keyword), trim($status));
+        return $this->idp->searchIDPByCondition($designerID, $keyword, $status);
     }
 }

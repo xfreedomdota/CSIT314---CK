@@ -16,11 +16,11 @@ class CreateCategoryController
     public function createCategory(string $categoryName, string $description): bool
     {
         $this->error = '';
-        if (trim($categoryName) === '') {
+        if ($categoryName === '') {
             $this->error = 'invalid';
             return false;
         }
-        if (!$this->category->createCategory(trim($categoryName), trim($description))) {
+        if (!$this->category->createCategory($categoryName, $description)) {
             $this->error = 'exists';
             return false;
         }

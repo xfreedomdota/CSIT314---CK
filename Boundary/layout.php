@@ -7,8 +7,20 @@ const LOGOUT_PAGES = [
     'Platform Manager'  => '14_21_40_LogOutPage.php',
 ];
 
+function trimInput(array $input): array
+{
+    foreach ($input as $key => $value) {
+        if (is_string($value) && !str_contains((string) $key, 'password')) {
+            $input[$key] = trim($value);
+        }
+    }
+    return $input;
+}
+
 function startSession(?string $role = null): void
 {
+    $_POST = trimInput($_POST);
+    $_GET  = trimInput($_GET);
     if (session_status() !== PHP_SESSION_ACTIVE) {
         session_start();
     }

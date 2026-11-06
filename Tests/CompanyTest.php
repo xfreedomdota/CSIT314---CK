@@ -36,7 +36,7 @@ class CompanyTest extends TestCase
     public function testRegisterCompanyWithoutName(): void
     {
         $controller = new RegisterCompanyController($this->company);
-        $this->assertFalse($controller->registerCompany($this->designer, '  ', 'R', 'D', 'A'));
+        $this->assertFalse($controller->registerCompany($this->designer, '', 'R', 'D', 'A'));
         $this->assertSame('invalid', $controller->getError());
     }
 

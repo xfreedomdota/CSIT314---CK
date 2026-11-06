@@ -14,12 +14,10 @@ class UpdateAccountController
 
     public function updateAccount(string $username, string $password, string $email, string $status): bool
     {
-        $email = trim($email);
-
-        if (trim($username) === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)
+        if ($username === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)
             || !in_array($status, self::STATUSES, true)) {
             return false;
         }
-        return $this->userAccount->updateAccount(trim($username), $password, $email, $status);
+        return $this->userAccount->updateAccount($username, $password, $email, $status);
     }
 }

@@ -16,8 +16,6 @@ class LoginController
 
     public function login(string $username, string $password): bool
     {
-        $username = trim($username);
-
         if (!$this->userAccount->validatePassword($username, $password)) {
             return false;
         }

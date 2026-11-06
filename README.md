@@ -25,18 +25,19 @@ one Boundary page and one Control class per story, using shared Entity classes.
 
 ## Test data
 `Database/generate_data.php` creates `Database/test_data.sql` with random but realistic records:
-210 users (accounts + profiles), 94 extra categories (100 in total), 100 companies, 150 projects,
-200 shortlists and 600 project views spread over the last 30 days.
+Together with the demo rows in `interior_design.sql` this gives 100 customers, 100 interior designers
+(each with one company, so 100 companies), 5 platform managers, 5 user admins, 100 categories, 100 projects,
+100 shortlists and 100 project views spread over the last 30 days.
 
 To regenerate it: `C:\xampp\php\php.exe Database\generate_data.php`, then re-import both SQL files into an empty database.
 
 Every generated user's password is **Test123!**
 | Role | Usernames |
 |---|---|
-| Customer | cust001 - cust100 |
-| Interior Designer | des001 - des100 |
-| Platform Manager | pm001 - pm005 |
-| User Admin | ua001 - ua005 |
+| Customer | cust001 - cust098 |
+| Interior Designer | des001 - des098 |
+| Platform Manager | pm001 - pm004 |
+| User Admin | ua001 - ua003 |
 
 About 5% of generated users are suspended on purpose, so some of them cannot log in.
 
